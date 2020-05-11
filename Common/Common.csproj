@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DC9D1CB7-5F68-4EEA-9A15-08AAC649E851}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Common</RootNamespace>
+    <AssemblyName>Common</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.0.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.10.1\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Unity.Abstractions, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Abstractions.5.11.1\lib\net46\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Container.5.11.1\lib\net46\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.log4net, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.log4net.5.11.1\lib\net46\Unity.log4net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configs\CommonSettings.cs" />
+    <Compile Include="Configs\JiraSettings.cs" />
+    <Compile Include="Configs\MeetingSettings.cs" />
+    <Compile Include="Configs\MyUtilitySettings.cs" />
+    <Compile Include="Configs\NotificationSettings.cs" />
+    <Compile Include="Configs\ReportSettings.cs" />
+    <Compile Include="Configs\StashSettings.cs" />
+    <Compile Include="Contract\IConfigurations.cs" />
+    <Compile Include="Contract\IConfluencePageHelper.cs" />
+    <Compile Include="Contract\ICredentials.cs" />
+    <Compile Include="Contract\IDataHelper.cs" />
+    <Compile Include="Contract\IHttpRequestHelper.cs" />
+    <Compile Include="Contract\IJiraStatusHelper.cs" />
+    <Compile Include="Contract\IJiraTracker.cs" />
+    <Compile Include="Contract\IMeeting.cs" />
+    <Compile Include="Contract\INotifier.cs" />
+    <Compile Include="Contract\IReport.cs" />
+    <Compile Include="Contract\IStashProvider.cs" />
+    <Compile Include="Contract\IStatusHelper.cs" />
+    <Compile Include="Models\AlertRequestModel.cs" />
+    <Compile Include="Models\ConfluencePageResponse.cs" />
+    <Compile Include="Models\ConfluenceTableData.cs" />
+    <Compile Include="Models\Constants.cs" />
+    <Compile Include="Models\Credentials.cs" />
+    <Compile Include="Models\JiraAssigneeResponse.cs" />
+    <Compile Include="Models\JiraCustomRequest.cs" />
+    <Compile Include="Models\JiraCustomSearchResponse.cs" />
+    <Compile Include="Models\JiraIdResponse.cs" />
+    <Compile Include="Models\JiraPrResponse.cs" />
+    <Compile Include="Models\JiraResponse.cs" />
+    <Compile Include="Models\JiraStatusDto.cs" />
+    <Compile Include="Models\JiraStatusRequest.cs" />
+    <Compile Include="Models\MeetingDataList.cs" />
+    <Compile Include="Models\RebaseStatusResponse.cs" />
+    <Compile Include="Models\Report\StatusDataModel.cs" />
+    <Compile Include="Models\StashMergedResponse.cs" />
+    <Compile Include="Models\StashMergeStatusResponse.cs" />
+    <Compile Include="Models\StashOverviewResponse.cs" />
+    <Compile Include="Models\StashPRResponse.cs" />
+    <Compile Include="Models\StashRebaseResponse.cs" />
+    <Compile Include="Models\StashVersion.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\CustomDataContractResolver.cs" />
+    <Compile Include="Utils\EnumWithName.cs" />
+    <Compile Include="Utils\LogCreation.cs" />
+    <Compile Include="Utils\SingletonAction.cs" />
+    <Compile Include="Utils\StringEnumBase.cs" />
+    <Compile Include="Utils\Utility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

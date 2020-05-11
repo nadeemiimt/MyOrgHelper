@@ -1,0 +1,164 @@
+﻿@using System.Linq
+@model Common.Models.StatusDataModel
+@{
+
+    var JiraTaskIdentifier = Model.JiraTaskIdentifier.Split(',');
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table.blueTable {
+            border: 1px solid #1C6EA4;
+            background-color: #EEEEEE;
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse;
+        }
+
+            table.blueTable td, table.blueTable th {
+                border: 1px solid #AAAAAA;
+                padding: 3px 2px;
+            }
+
+            table.blueTable tbody td {
+                font-size: 13px;
+            }
+
+            table.blueTable tr:nth-child(even) {
+                background: #D0E4F5;
+            }
+
+            table.blueTable thead {
+                background: #1C6EA4;
+                background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+                background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+                background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+                border-bottom: 2px solid #444444;
+            }
+
+                table.blueTable thead th {
+                    font-size: 15px;
+                    font-weight: bold;
+                    color: #FFFFFF;
+                    border-left: 2px solid #D0E4F5;
+                }
+
+                    table.blueTable thead th:first-child {
+                        border-left: none;
+                    }
+
+            table.blueTable tfoot {
+                font-size: 14px;
+                font-weight: bold;
+                color: #FFFFFF;
+                background: #D0E4F5;
+                background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+                background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+                background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+                border-top: 2px solid #444444;
+            }
+
+                table.blueTable tfoot td {
+                    font-size: 14px;
+                }
+
+                table.blueTable tfoot .links {
+                    text-align: right;
+                }
+
+                    table.blueTable tfoot .links a {
+                        display: inline-block;
+                        background: #1C6EA4;
+                        color: #FFFFFF;
+                        padding: 2px 8px;
+                        border-radius: 5px;
+                    }
+    </style>
+</head>
+<body>
+    @{
+        int pointCounter = 0;
+    }
+    <table class="blueTable">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Task Id</th>
+                <th>Summary</th>
+                <th>Status</th>
+                @if (Model.IsJiraTaskAlert)
+                {
+                    <th>Priority</th>
+                }
+                @if (Model.EnableStoryPoints || Model.IsJiraTaskAlert)
+                {
+                    <th>Point</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var data in Model.Status)
+            {
+
+                pointCounter = pointCounter + (data.StoryPoint ?? 0);
+            <tr>
+                <td>@data.Type</td>
+                <td>
+                    @if (JiraTaskIdentifier.Any(x => data.JiraTaskId.Contains(x)))
+                    {
+                        <a href="https://@Model.JiraBase/jira/browse/@data.JiraTaskId">@data.JiraTaskId</a>
+                    }
+                    else
+                    {
+                        @data.JiraTaskId
+                    }
+                </td>
+                @if (data.IsNew)
+                {
+                    <td title="Newly Added" style="color: red;">@data.Summary</td>
+                }
+                else
+                {
+                    <td>@data.Summary</td>
+                }
+                <td>@data.Status</td>
+                @if (Model.IsJiraTaskAlert)
+                {
+                    <td>@(data.Priority)</td>
+                }
+                @if (Model.EnableStoryPoints)
+                {
+                    if (data.StoryPoint == 0)
+                    {
+                        <td>Not Estimated</td>
+                    }
+                    else
+                    {
+                        <td>@(data.StoryPoint)</td>
+                    }
+                }
+            </tr>
+            }
+            @if (Model.EnableStoryPoints)
+            {
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td colspan="2" style="font-weight: bold;" align="left">Story Total:&nbsp;</td>
+                    <td style="font-weight:bold" align="left">@pointCounter</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+<footer>
+    <br />
+    @if(Model.IsJiraTaskAlert)
+{       <div>Note: Newly added ticket summary is in <b style="color: red;">red</b> color.</div>
+        <p>Please go to <a href="@Model.JiraTaskConfluencePage">Confluence link</a> to view/modify/delete tasks.</p>
+        <br/>
+    }
+    <p><b>Disclaimer: Auto generated report.</b></p>
+</footer>
+</html>
