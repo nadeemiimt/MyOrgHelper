@@ -213,7 +213,7 @@ namespace BusinessLogic.Report
             }
 
             var result = new List<string>();
-            string taskPattern = @"\b[CMCM=]\w+-\d{6}";
+            string taskPattern = @"\bCMCM-\d{6}|\bCONSVR-\d{4}|\bESC-\d{5}";
 
             RegexOptions options = RegexOptions.Multiline;
 

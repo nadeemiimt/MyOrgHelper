@@ -54,7 +54,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(498, 694);
+            this.button1.Location = new System.Drawing.Point(83, 248);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(231, 95);
             this.button1.TabIndex = 3;
@@ -67,7 +67,7 @@
             this.un.AutoSize = true;
             this.un.Location = new System.Drawing.Point(110, 92);
             this.un.Name = "un";
-            this.un.Size = new System.Drawing.Size(63, 32);
+            this.un.Size = new System.Drawing.Size(36, 20);
             this.un.TabIndex = 4;
             this.un.Text = "UN:";
             // 
@@ -76,7 +76,7 @@
             this.pwd.AutoSize = true;
             this.pwd.Location = new System.Drawing.Point(673, 91);
             this.pwd.Name = "pwd";
-            this.pwd.Size = new System.Drawing.Size(88, 32);
+            this.pwd.Size = new System.Drawing.Size(50, 20);
             this.pwd.TabIndex = 5;
             this.pwd.Text = "PWD:";
             // 
@@ -84,14 +84,14 @@
             // 
             this.unTxt.Location = new System.Drawing.Point(239, 85);
             this.unTxt.Name = "unTxt";
-            this.unTxt.Size = new System.Drawing.Size(351, 38);
+            this.unTxt.Size = new System.Drawing.Size(351, 26);
             this.unTxt.TabIndex = 6;
             // 
             // pwdTxt
             // 
             this.pwdTxt.Location = new System.Drawing.Point(855, 88);
             this.pwdTxt.Name = "pwdTxt";
-            this.pwdTxt.Size = new System.Drawing.Size(351, 38);
+            this.pwdTxt.Size = new System.Drawing.Size(351, 26);
             this.pwdTxt.TabIndex = 7;
             this.pwdTxt.UseSystemPasswordChar = true;
             // 
@@ -102,7 +102,7 @@
             this.sendEmail.CheckState = System.Windows.Forms.CheckState.Checked;
             this.sendEmail.Location = new System.Drawing.Point(514, 208);
             this.sendEmail.Name = "sendEmail";
-            this.sendEmail.Size = new System.Drawing.Size(192, 36);
+            this.sendEmail.Size = new System.Drawing.Size(112, 24);
             this.sendEmail.TabIndex = 8;
             this.sendEmail.Text = "SendEmail";
             this.sendEmail.UseVisualStyleBackColor = true;
@@ -112,7 +112,7 @@
             this.pdf.AutoSize = true;
             this.pdf.Location = new System.Drawing.Point(875, 208);
             this.pdf.Name = "pdf";
-            this.pdf.Size = new System.Drawing.Size(215, 36);
+            this.pdf.Size = new System.Drawing.Size(127, 24);
             this.pdf.TabIndex = 9;
             this.pdf.Text = "GeneratePdf";
             this.pdf.UseVisualStyleBackColor = true;
@@ -133,51 +133,51 @@
             this.browser.AutoSize = true;
             this.browser.Location = new System.Drawing.Point(128, 208);
             this.browser.Name = "browser";
-            this.browser.Size = new System.Drawing.Size(263, 36);
+            this.browser.Size = new System.Drawing.Size(154, 24);
             this.browser.TabIndex = 11;
             this.browser.Text = "Open In Browser";
             this.browser.UseVisualStyleBackColor = true;
             // 
             // fromDate
             // 
-            this.fromDate.Location = new System.Drawing.Point(295, 594);
+            this.fromDate.Location = new System.Drawing.Point(239, 139);
             this.fromDate.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.fromDate.Name = "fromDate";
-            this.fromDate.Size = new System.Drawing.Size(200, 38);
+            this.fromDate.Size = new System.Drawing.Size(200, 26);
             this.fromDate.TabIndex = 12;
             // 
             // toDate
             // 
-            this.toDate.Location = new System.Drawing.Point(770, 594);
+            this.toDate.Location = new System.Drawing.Point(855, 138);
             this.toDate.Name = "toDate";
-            this.toDate.Size = new System.Drawing.Size(200, 38);
+            this.toDate.Size = new System.Drawing.Size(200, 26);
             this.toDate.TabIndex = 13;
             // 
             // fromLabel
             // 
             this.fromLabel.AutoSize = true;
-            this.fromLabel.Location = new System.Drawing.Point(140, 600);
+            this.fromLabel.Location = new System.Drawing.Point(110, 144);
             this.fromLabel.Name = "fromLabel";
-            this.fromLabel.Size = new System.Drawing.Size(88, 32);
+            this.fromLabel.Size = new System.Drawing.Size(50, 20);
             this.fromLabel.TabIndex = 14;
             this.fromLabel.Text = "From:";
             // 
             // toLabel
             // 
             this.toLabel.AutoSize = true;
-            this.toLabel.Location = new System.Drawing.Point(624, 600);
+            this.toLabel.Location = new System.Drawing.Point(673, 143);
             this.toLabel.Name = "toLabel";
-            this.toLabel.Size = new System.Drawing.Size(56, 32);
+            this.toLabel.Size = new System.Drawing.Size(31, 20);
             this.toLabel.TabIndex = 15;
             this.toLabel.Text = "To:";
             // 
             // userList
             // 
             this.userList.FormattingEnabled = true;
-            this.userList.ItemHeight = 31;
+            this.userList.ItemHeight = 20;
             this.userList.Location = new System.Drawing.Point(391, 365);
             this.userList.Name = "userList";
-            this.userList.Size = new System.Drawing.Size(569, 159);
+            this.userList.Size = new System.Drawing.Size(569, 144);
             this.userList.TabIndex = 16;
             // 
             // userLabel
@@ -185,7 +185,7 @@
             this.userLabel.AutoSize = true;
             this.userLabel.Location = new System.Drawing.Point(212, 365);
             this.userLabel.Name = "userLabel";
-            this.userLabel.Size = new System.Drawing.Size(96, 32);
+            this.userLabel.Size = new System.Drawing.Size(55, 20);
             this.userLabel.TabIndex = 17;
             this.userLabel.Text = "Users:";
             // 
@@ -194,7 +194,7 @@
             this.noCcCheck.AutoSize = true;
             this.noCcCheck.Location = new System.Drawing.Point(514, 271);
             this.noCcCheck.Name = "noCcCheck";
-            this.noCcCheck.Size = new System.Drawing.Size(136, 36);
+            this.noCcCheck.Size = new System.Drawing.Size(81, 24);
             this.noCcCheck.TabIndex = 18;
             this.noCcCheck.Text = "No CC";
             this.noCcCheck.UseVisualStyleBackColor = true;
@@ -204,7 +204,7 @@
             this.customSearch.AutoSize = true;
             this.customSearch.Location = new System.Drawing.Point(875, 271);
             this.customSearch.Name = "customSearch";
-            this.customSearch.Size = new System.Drawing.Size(247, 36);
+            this.customSearch.Size = new System.Drawing.Size(145, 24);
             this.customSearch.TabIndex = 19;
             this.customSearch.Text = "Custom Search";
             this.customSearch.UseVisualStyleBackColor = true;
@@ -222,7 +222,7 @@
             // 
             // Form4
             // 
-            this.ClientSize = new System.Drawing.Size(1373, 940);
+            this.ClientSize = new System.Drawing.Size(1248, 536);
             this.Controls.Add(this.jiraTasks);
             this.Controls.Add(this.customSearch);
             this.Controls.Add(this.noCcCheck);

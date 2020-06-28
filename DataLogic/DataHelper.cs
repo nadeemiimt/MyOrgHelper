@@ -1,5 +1,6 @@
 ﻿using Common.Contract;
 using Common.Models;
+using log4net;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -16,10 +17,12 @@ namespace DataLogic
     public class DataHelper : IDataHelper
     {
         private readonly IConfigurations configurations;
+        private readonly ILog logger;
 
-        public DataHelper(IConfigurations configurations)
+        public DataHelper(IConfigurations configurations, ILog logger)
         {
             this.configurations = configurations;
+            this.logger = logger;
         }
 
         public CredentialCache GetCredential(string url, string userName, string password)
@@ -42,8 +45,9 @@ namespace DataLogic
                 Encrypt(credentials);
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                this.logger.Error(ex);
                 return false;
             }
         }
@@ -100,9 +104,9 @@ namespace DataLogic
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                this.logger.Error(ex);
                 return "{UserName:\"\", Password:\"\"}";
             }
 

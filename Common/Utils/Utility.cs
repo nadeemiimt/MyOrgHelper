@@ -159,7 +159,7 @@ namespace Common.Utils
                 return null;
             }
 
-            string taskPattern = @"\b[CMCM=]\w+-\d{6}";
+            string taskPattern = @"\bCMCM-\d{6}|\bCONSVR-\d{4}|\bESC-\d{5}";
 
             RegexOptions options = RegexOptions.Multiline;
 
@@ -175,7 +175,7 @@ namespace Common.Utils
         {
             var result = false;
 
-            if(id.ToUpper().Contains("CMCM"))  // can be modified for other logic 
+            if(id.ToUpper().Contains("CMCM,CONSVR,ESC"))  // can be modified for other logic 
             {
                 result = true;
             }
